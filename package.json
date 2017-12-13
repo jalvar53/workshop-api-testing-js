@@ -15,7 +15,7 @@
     "dojo",
     "practice"
   ],
-  "author": "Jose Luis Alvarez Herrera - jalvarezh@psl.com.co (jalvar53)",
+  "author": "Jose Luis Alvarez Herrera <jalvarezh@psl.com.co> (https://github.com/jalvar53)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jalvar53/workshop-api-testing-js/issues"
