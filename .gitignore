@@ -1,0 +1,16 @@
+logs
+*.log
+node_modules/
+typings/
+.npm
+.eslintcache
+.vscode
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
