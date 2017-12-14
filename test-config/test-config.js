@@ -15,4 +15,4 @@ module.exports = {
   statusCode,
   md5,
   APIBaseUrl
-}
+};
