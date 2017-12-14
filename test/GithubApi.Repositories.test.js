@@ -1,13 +1,11 @@
-const agent = require('superagent-promise')(require('superagent'), Promise);
-const statusCode = require('http-status-codes');
-const md5 = require('md5');
-const chai = require('chai');
-const chaiSubset = require('chai-subset');
+const {
+  agent,
+  expect,
+  statusCode,
+  md5,
+  APIBaseUrl
+} = require('../test-config/test-config');
 
-chai.use(chaiSubset);
-
-const { expect } = chai;
-const baseUrl = 'https://api.github.com';
 const user = 'aperdomob';
 const branchName = 'master';
 const repoName = 'jasmine-awesome-report';
@@ -16,7 +14,7 @@ describe('Consuming GET Methods', () => {
   let userInformation;
 
   describe('When getting the user', () => {
-    before(() => agent.get(`${baseUrl}/users/${user}`)
+    before(() => agent.get(`${APIBaseUrl}/users/${user}`)
       .auth('token', process.env.ACCESS_TOKEN)
       .then((response) => {
         userInformation = response;

@@ -1,6 +1,4 @@
-const agent = require('superagent-promise')(require('superagent'), Promise);
-const statusCode = require('http-status-codes');
-const { expect } = require('chai');
+const { agent, expect, statusCode } = require('../test-config/test-config');
 
 describe('Given a Github URL that redirects', () => {
   describe('When get the header', () => {

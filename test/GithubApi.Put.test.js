@@ -1,14 +1,16 @@
-const agent = require('superagent-promise')(require('superagent'), Promise);
-const statusCode = require('http-status-codes');
-const { expect } = require('chai');
+const {
+  agent,
+  expect,
+  statusCode,
+  APIBaseUrl
+} = require('../test-config/test-config');
 
 const followerName = 'jalvar53';
 const followedName = 'aperdomob';
-const baseUrl = 'https://api.github.com';
 
 describe('Put API Tests', () => {
   it('Should return empty body', () => {
-    agent.put(`${baseUrl}/user/following/${followedName}`)
+    agent.put(`${APIBaseUrl}/user/following/${followedName}`)
       .auth('token', process.env.ACCESS_TOKEN)
       .then((response) => {
         expect(response.status).to.equal(statusCode.NO_CONTENT);
@@ -20,7 +22,7 @@ describe('Put API Tests', () => {
     let user;
 
     before(() => {
-      const userSearch = agent.get(`${baseUrl}/users/${followedName}/followers`)
+      const userSearch = agent.get(`${APIBaseUrl}/users/${followedName}/followers`)
         .auth('token', process.env.ACCESS_TOKEN)
         .then((response) => {
           const followers = response.body;
@@ -36,7 +38,7 @@ describe('Put API Tests', () => {
 
   describe('Check PUT Method\'s idempotency', () => {
     it('Should return empty body', () => {
-      agent.put(`${baseUrl}/user/following/${followedName}`)
+      agent.put(`${APIBaseUrl}/user/following/${followedName}`)
         .auth('token', process.env.ACCESS_TOKEN)
         .then((response) => {
           expect(response.status).to.equal(statusCode.NO_CONTENT);
