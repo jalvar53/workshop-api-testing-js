@@ -1,7 +1,7 @@
-const agent = require('superagent-promise')(require('superagent'), Promise);
-const { expect } = require('chai');
+const { agent, expect } = require('../test-config/test-config');
 
 const username = 'jalvar53';
+
 describe('Given a Github HTTP API', () => {
   describe('When testing POST and PATCH Http Methods', () => {
     describe('And we get the logged user repos', () => {

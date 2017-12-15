@@ -1,13 +1,11 @@
-const agent = require('superagent-promise')(require('superagent'), Promise);
-const statusCode = require('http-status-codes');
-const chai = require('chai');
-const chaiSubset = require('chai-subset');
 
-chai.use(chaiSubset);
-
-const { expect, assert } = chai;
-
-const baseUrl = 'https://api.github.com/gists';
+const {
+  agent,
+  expect,
+  statusCode,
+  assert,
+  APIBaseUrl
+} = require('../test-config/test-config');
 
 describe('Given a Github API', () => {
   let gistUrl;
@@ -22,7 +20,7 @@ describe('Given a Github API', () => {
   };
   describe('When we want to create a new gist', () => {
     it('Then, it should be created correctly', () => {
-      const gistPostSearch = agent.post(baseUrl, gistData)
+      const gistPostSearch = agent.post(`${APIBaseUrl}/gists`, gistData)
         .auth('token', process.env.ACCESS_TOKEN)
         .then((response) => {
           expect(response.status).to.equal(statusCode.CREATED);
