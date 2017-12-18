@@ -19,5 +19,6 @@ module.exports = {
   md5,
   APIBaseUrl,
   responseTime,
-  listPublicEventsSchema
+  listPublicEventsSchema,
+  APIBaseUrl
 };
