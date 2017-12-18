@@ -24,4 +24,32 @@ describe('Given the Github API', () => {
       expect(requestTime).to.be.lessThan(5000);
     });
   });
+
+  describe('When we call the endpoint of all users', () => {
+    it('Then, should have 30 (default) registers', () => {
+      agent.get(`${APIBaseUrl}/users`)
+        .auth('token', process.env.ACCESS_TOKEN)
+        .then((response) => {
+          expect(response.body.length).to.be.equal(30);
+        });
+    });
+
+    it('Then, should have 10 registers', () => {
+      agent.get(`${APIBaseUrl}/users`)
+        .auth('token', process.env.ACCESS_TOKEN)
+        .query({ per_page: 10 })
+        .then((response) => {
+          expect(response.body.length).to.be.equal(10);
+        });
+    });
+
+    it('Then, should have 50 registers', () => {
+      agent.get(`${APIBaseUrl}/users`)
+        .auth('token', process.env.ACCESS_TOKEN)
+        .query({ per_page: 50 })
+        .then((response) => {
+          expect(response.body.length).to.be.equal(50);
+        });
+    });
+  });
 });
