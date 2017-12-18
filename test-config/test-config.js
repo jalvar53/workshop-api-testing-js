@@ -16,6 +16,6 @@ module.exports = {
   statusCode,
   md5,
   APIBaseUrl,
-  responseTime
+  responseTime,
   APIBaseUrl
 };
