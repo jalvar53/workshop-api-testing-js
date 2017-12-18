@@ -17,4 +17,5 @@ module.exports = {
   md5,
   APIBaseUrl,
   responseTime
+  APIBaseUrl
 };
